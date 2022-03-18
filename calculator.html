@@ -1,0 +1,116 @@
+<html>
+<head>
+    <title> Simple Calculator by Rusdi </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8" />
+	<script>
+		//function that display value
+		function dispayValue(val)
+		{
+			document.getElementById("result").value+=val
+		}
+
+		//function that evaluates the digit and return result
+		function  resolve()
+		{
+			let x = document.getElementById("result").value
+			let y = eval(x)
+			document.getElementById("result").value = y
+		}
+
+		//function that clear the display
+		function clearDisplay()
+		{
+			document.getElementById("result").value = ""
+		}
+		function deleteDisplay ()
+		{
+		    var input = document.getElementById("result");
+			input.value = input.value.substring(0, input.value.length - 1);
+		}
+	</script>
+	<!-- for styling -->
+	<style>
+		.title{
+		margin-bottom: 20px;
+		text-align:center;
+		width: 425px;
+		color:black;
+		border: solid black 6px;
+		margin-left:auto;margin-right:auto
+		}
+
+		input[type="button"]
+		{
+		background-color:aqua;
+		color: black;
+		border: solid black 8px;
+		width:100%
+		}
+
+		input[type="text"]
+		{
+		background-color:aqua;
+		border: solid black 6px;
+		font-size: 25px;
+		width:100%
+		}
+
+		#p
+		{
+        color:orangered;
+        font-size: 25px;
+        font-weight: normal;
+        font-variant: small-caps;
+        font-family: Andale Mono;
+		}
+
+		#p1
+		{
+        color:black;
+        font-size: 25px;
+        font-weight: normal;
+        font-variant: small-caps;
+        font-family: Andale Mono;
+		}
+	</style>
+</head>
+<!-- create table -->
+<body>
+	<div style="background-color: aqua; cursor: pointer" class = title > <font size="5"><b>Calculator</font><br> (Bahasa Pemograman 1)</div>
+	<table style="background-color: aqua; width:50%; border-collapse: collapse" border="6" cellpadding="5" align="center">
+		<tr>
+			<td colspan="3"><input type="text" id="result" style = "background-color: SkyBlue" readonly /></td>
+			<!-- clr() function will call clr to clear all value -->
+			<td width="70"><input type="button" value="del" onclick="deleteDisplay()" style = "background-color: #fb0066; cursor: pointer" id="p1"/> </td>
+			<td width="70" bgcolor="aqua" rowspan="5"><input type="button" value="AC" onclick="clearDisplay()" style="background-color: #fb0066; cursor: pointer" id="p1"/></td>
+		</tr>
+		<tr>
+			<!-- create button and assign value to each button -->
+			<!-- dis("1") will call function dis to display value -->
+			<td><input type="button" value="7" onclick="dispayValue('7')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="8" onclick="dispayValue('8')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="9" onclick="dispayValue('9')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="/" onclick="dispayValue('/')" style = "cursor: pointer" id="p"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="4" onclick="dispayValue('4')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="5" onclick="dispayValue('5')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="6" onclick="dispayValue('6')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="-" onclick="dispayValue('-')" style = "cursor: pointer" id="p"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="1" onclick="dispayValue('1')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="2" onclick="dispayValue('2')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="3" onclick="dispayValue('3')" style = "cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="+" onclick="dispayValue('+')" style = "cursor: pointer" id="p"/> </td>
+		</tr>
+		<tr>
+			<td><input type="button" value="." onclick="dispayValue('.')"style = "cursor: pointer" id="p"/> </td>
+			<td><input type="button" value="0" onclick="dispayValue('0')"style = "cursor: pointer" id="p1"/> </td>
+			<!-- resolve function call function resolve to evaluate value -->
+			<td><input type="button" value="=" onclick="resolve()"style = "background-color: #fb0066; cursor: pointer" id="p1"/> </td>
+			<td><input type="button" value="×" onclick="dispayValue('*')"style = "cursor: pointer" id="p"/> </td>
+		</tr>
+	</table>
+</body>
+</html>
